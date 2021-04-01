@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 function Form(props) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(props.edit ? props.edit.value : "");
+  const [category, setCategory] = useState("");
 
   // handle change value
   const handleChange = (e) => {
@@ -15,6 +16,7 @@ function Form(props) {
     props.onSubmit({
       id: Math.floor(Math.random() * 1000),
       text: input,
+      kategori: category,
     });
     setInput("");
   };
@@ -22,14 +24,51 @@ function Form(props) {
   return (
     <div>
       <form onSubmit={handleForm}>
-        <input
-          type="text"
-          placeholder="Input your to do"
-          name="text"
-          value={input}
-          onChange={handleChange}
-        />
-        <button>Add</button>
+        {props.edit ? (
+          <>
+            <input
+              type="text"
+              placeholder="Update list"
+              name="text"
+              value={input}
+              onChange={handleChange}
+            />
+            <select
+              onChange={(e) => {
+                const seletedCategory = e.target.value;
+                console.log("ini seletedCategory", seletedCategory);
+                setCategory(seletedCategory);
+              }}
+            >
+              <option value="belajar">Belajar</option>
+              <option value="rumah">Rumah</option>
+              <option value="kerja">Kerja</option>
+            </select>
+            <button>Update</button>
+          </>
+        ) : (
+          <>
+            <input
+              type="text"
+              placeholder="Input your to do"
+              name="text"
+              value={input}
+              onChange={handleChange}
+            />
+            <select
+              onChange={(e) => {
+                const seletedCategory = e.target.value;
+                console.log("ini seletedCategory", seletedCategory);
+                setCategory(seletedCategory);
+              }}
+            >
+              <option value="belajar">Belajar</option>
+              <option value="rumah">Rumah</option>
+              <option value="kerja">Kerja</option>
+            </select>
+            <button>Add</button>
+          </>
+        )}
       </form>
     </div>
   );

@@ -3,6 +3,9 @@ import React, { useState } from "react";
 // components
 import Form from "./Form";
 
+// css
+import "../styles/Maplist.css";
+
 function MapList({ lists, completeLists, deleteLists, updateLists }) {
   const [edit, setEdit] = useState({
     id: null,
@@ -30,8 +33,11 @@ function MapList({ lists, completeLists, deleteLists, updateLists }) {
       {lists.map((item, index) => (
         <div key={index}>
           <div key={item.id} onClick={() => completeLists(item.id)}>
-            <p>{item.id}</p>
-            <h2>{item.text}</h2>
+            <div className={item.isComplete ? "todo-row complete" : "todo-row"}>
+              <p>{item.id}</p>
+              <p>{item.kategori}</p>
+              <h2>{item.text}</h2>
+            </div>
           </div>
           <div>
             <p onClick={() => deleteLists(item.id)}> X Delete</p>
@@ -48,6 +54,11 @@ function MapList({ lists, completeLists, deleteLists, updateLists }) {
           </div>
         </div>
       ))}
+      <div>
+        <h2>progress</h2>
+        <h2>Done</h2>
+        <h2>Total</h2>
+      </div>
     </div>
   );
 }
