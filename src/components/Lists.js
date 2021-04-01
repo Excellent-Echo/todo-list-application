@@ -64,6 +64,11 @@ function List() {
     setLists(updateList);
   };
 
+  // total list
+  const listTotal = () => {
+    return lists.length;
+  };
+
   return (
     <div>
       <h3>Your Lists</h3>
@@ -73,6 +78,7 @@ function List() {
         completeLists={completeLists}
         deleteLists={deleteLists}
         updateLists={updateLists}
+        listTotal={listTotal}
       />
     </div>
   );

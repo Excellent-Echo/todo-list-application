@@ -6,11 +6,19 @@ import Form from "./Form";
 // css
 import "../styles/Maplist.css";
 
-function MapList({ lists, completeLists, deleteLists, updateLists }) {
+function MapList({
+  lists,
+  completeLists,
+  deleteLists,
+  updateLists,
+  listTotal,
+}) {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
   });
+
+  console.log("Ini lists di Maplists", lists);
 
   // handle submit update
   const submitUpdate = (value) => {
@@ -30,6 +38,9 @@ function MapList({ lists, completeLists, deleteLists, updateLists }) {
   return (
     // tampilkan semua data ke html menggunakan mapping
     <div>
+      <h1>Belajar</h1>
+      <h1>Rumah</h1>
+      <h1>Kerja</h1>
       {lists.map((item, index) => (
         <div key={index}>
           <div key={item.id} onClick={() => completeLists(item.id)}>
@@ -55,9 +66,9 @@ function MapList({ lists, completeLists, deleteLists, updateLists }) {
         </div>
       ))}
       <div>
-        <h2>progress</h2>
+        <h2>progress </h2>
         <h2>Done</h2>
-        <h2>Total</h2>
+        <h2>Total {listTotal()}</h2>
       </div>
     </div>
   );
