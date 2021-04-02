@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import addButton from '../assets/add-button.svg';
 import './todoform.css';
 
-const ToDoForm = ({ addTodo }) => {
+const ToDoForm = ({ addTask }) => {
   const [value, setValue] = useState("");
   const [category, setCategory] = useState("0");
   const [personalTask, setPersonalTask] = useState(0);
@@ -19,7 +19,7 @@ const ToDoForm = ({ addTodo }) => {
     } else if (category === "0") {
       return alert("You must choose one category");
     }
-    addTodo(value);
+    addTask(value);
     setValue("");
 
     if (category === "Personal") {
@@ -65,7 +65,7 @@ const ToDoForm = ({ addTodo }) => {
           <option value="0">Category</option>
           <option value="Personal">Personal</option>
           <option value="Work">Work</option>
-          <option value="Health & Fit">Health & Fit</option>
+          <option value="Health &amp; Fit">Health &amp; Fit</option>
           <option value="Shopping">Shopping</option>
         </select>
         <div className="input-group-append">
@@ -85,19 +85,19 @@ const ToDoForm = ({ addTodo }) => {
         <div className="row">
           <div className="col-sm-12 d-flex justify-content-center">
             <div id="personal" className="category">
-              <h5>Personal</h5>
+              <p>Personal</p>
               <p>{personalTask} task(s)</p>
             </div>
             <div id="work" className="category">
-              <h5>Work</h5>
+              <p>Work</p>
               <p>{workTask} task(s)</p>
             </div>
             <div id="health" className="category">
-              <h5>Health & Fit</h5>
+              <p>Health &amp; Fit</p>
               <p>{healthTask} task(s)</p>
             </div>
             <div id="shopping" className="category">
-              <h5>Shopping</h5>
+              <p>Shopping</p>
               <p>{shoppingTask} task(s)</p>
             </div>
           </div>
