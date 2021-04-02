@@ -62,7 +62,16 @@ function MapList({
                         : "todo-row bg-gray-600"
                     }
                   >
-                    <p key={item.id} onClick={() => completeLists(item.id)}>
+                    <input
+                      type="checkbox"
+                      key={item.id}
+                      onClick={() => completeLists(item.id)}
+                    />
+
+                    {/* <p key={item.id} onClick={() => completeLists(item.id)}>
+                      <strong>id:</strong> {item.id}
+                    </p> */}
+                    <p>
                       <strong>id:</strong> {item.id}
                     </p>
                     <p>
@@ -112,7 +121,12 @@ function MapList({
                         : "todo-row bg-red-600"
                     }
                   >
-                    <p key={item.id} onClick={() => completeLists(item.id)}>
+                    <input
+                      type="checkbox"
+                      key={item.id}
+                      onClick={() => completeLists(item.id)}
+                    />
+                    <p>
                       <strong>id:</strong> {item.id}
                     </p>
                     <p>
@@ -162,7 +176,12 @@ function MapList({
                         : "todo-row bg-yellow-600 "
                     }
                   >
-                    <p key={item.id} onClick={() => completeLists(item.id)}>
+                    <input
+                      type="checkbox"
+                      key={item.id}
+                      onClick={() => completeLists(item.id)}
+                    />
+                    <p>
                       <strong>id:</strong> {item.id}
                     </p>
                     <p>
