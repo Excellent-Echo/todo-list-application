@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddTodo = ({toDo, setTodo, categories, handleForm}) => {
+const AddTodo = ({toDo, setTodo, categories, setCategory, handleForm}) => {
     return (
         <form onSubmit={handleForm}>
             <div className="row">
@@ -10,7 +10,8 @@ const AddTodo = ({toDo, setTodo, categories, handleForm}) => {
                  onChange={(e)=> setTodo(e.target.value)} 
                  value={toDo}
                  />
-                 <select className="form-control">
+                 <select className="form-control" onChange={(e)=> setCategory(e.target.value)}>
+                     <option default>Chose Category</option>
                      <option value={categories[0]}>{categories[0]}</option>
                      <option value={categories[1]}>{categories[1]}</option>
                      <option value={categories[2]}>{categories[2]}</option>

@@ -7,6 +7,7 @@ const ToDoList = () => {
     const [toDoList, setTodoList] = useState([]);
     const [toDoId, setTodoId] = useState(0);
     const [categories, setCategories] = useState(['Urgent & Important','Important not urgent', 'Urgent not Important']);
+    const [category, setCategory] = useState('');
 
     const handleForm = (e) => {
         e.preventDefault();
@@ -17,6 +18,7 @@ const ToDoList = () => {
                     id: toDoId + 1,
                     todo: toDo,
                     complete: false, 
+                    category: category
                 },
             ]);
             setTodo('');
@@ -41,12 +43,26 @@ const ToDoList = () => {
     }
     
     const deleteTask = (taskId) => {
-        const newTodos = toDoList.filter((item)=>{
-            return item.id !== taskId;
+        const newTodos = toDoList.filter((items)=>{
+            return items.id !== taskId;
         });
 
         setTodoList(newTodos);
     } 
+
+    // const doneTask = () => {
+    //     const doneList = toDoList.map((items)=>{
+    //         console.log(items.complete)
+    //         if(items.complete === true){
+    //             return {...items}
+    //         }
+    //     })
+    //     return doneList.length
+    // }
+
+    const total = () => {
+       return toDoList.length;
+    }
 
     return (
         <>
@@ -54,6 +70,7 @@ const ToDoList = () => {
                 <AddTodo
                  toDo={toDo}
                  setTodo={setTodo}
+                 setCategory={setCategory}
                  categories={categories}
                  handleForm={handleForm}
                 />
@@ -71,6 +88,8 @@ const ToDoList = () => {
                     )
                 })}
                 </ul>
+                {/* <span>Done Task : {doneTask()}</span> */}
+                <span>Total Task : {total()}</span>
             </div>
         </>
     );
