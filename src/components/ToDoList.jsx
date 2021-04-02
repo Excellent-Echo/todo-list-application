@@ -25,6 +25,10 @@ const ToDoList = () => {
     setTodos(newTodos);
   };
 
+  const totalTask = () => {
+    console.log(todos.length);
+  }
+
   const Todo = ({ todo, index, doneTodo }) => {
     return (
       <div
@@ -33,7 +37,7 @@ const ToDoList = () => {
       >
 
         <li
-          class="list-group-item">
+          className="list-group-item">
           <button
             className="done"
             onClick={() => doneTodo(index)}
@@ -79,7 +83,7 @@ const ToDoList = () => {
         <div className="container">
           <div className="row">
             <div className="col-sm-12 d-flex justify-content-center">
-              <h2>Today<span>you have 6 tasks</span></h2>
+              <h2>Today<span>you have {totalTask()} tasks</span></h2>
             </div>
           </div>
         </div>
