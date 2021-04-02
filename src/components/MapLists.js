@@ -12,12 +12,13 @@ function MapList({
   deleteLists,
   updateLists,
   listTotal,
+  updateTotal,
 }) {
   const [edit, setEdit] = useState({
     id: null,
     value: "",
   });
-  console.log("Ini lists di Maplists", lists);
+  // console.log("Ini lists di Maplists", lists);
 
   // filter kategori
   const kategoriBelajar = lists.filter((item) => item.kategori === "belajar");
@@ -27,8 +28,8 @@ function MapList({
 
   // handle submit update
   const submitUpdate = (value) => {
-    console.log("ini value", value);
-    console.log("ini edit id", edit.id);
+    // console.log("ini value", value);
+    // console.log("ini edit id", edit.id);
     updateLists(edit.id, value);
     setEdit({
       id: null,
@@ -48,8 +49,10 @@ function MapList({
         <div>
           <div className="bg-gray-600 rounded-2xl">
             <p className="text-xl ">Belajar</p>
+            <h1 className="italic text-white">
+              Progress: {kategoriBelajar.length}
+            </h1>
             <h1 className="italic text-white">Done: 5</h1>
-            <h1 className="italic text-white">Total: 5</h1>
           </div>
           <div>
             {kategoriBelajar.map((item, index) => (
@@ -107,8 +110,10 @@ function MapList({
         <div>
           <div className="bg-red-600 rounded-2xl">
             <p className="text-xl ">Rumah</p>
+            <h1 className="italic text-white">
+              Progress: {kategoriRumah.length}
+            </h1>
             <h1 className="italic text-white">Done: 5</h1>
-            <h1 className="italic text-white">Total: 5</h1>
           </div>
           <div>
             {kategoriRumah.map((item, index) => (
@@ -162,8 +167,10 @@ function MapList({
         <div>
           <div className="bg-yellow-600 rounded-2xl">
             <p className="text-xl ">Kerja</p>
+            <h1 className="italic text-white">
+              Progress: {kategoriKerja.length}
+            </h1>
             <h1 className="italic text-white">Done: 5</h1>
-            <h1 className="italic text-white">Total: 5</h1>
           </div>
           <div>
             {kategoriKerja.map((item, index) => (
@@ -217,10 +224,10 @@ function MapList({
       {/* Data hasil */}
       <div className="space-y-4 bg-red-500 mt-14">
         <span className="block text-red-100 text-2xl">
-          <strong>Progress:</strong>
+          <strong>Progress:</strong> {listTotal()}
         </span>
         <span className="block text-red-100 text-2xl">
-          <strong>Done:</strong>
+          <strong>Done: {updateTotal()}</strong>
         </span>
         <span className="block text-red-100 text-2xl">
           <strong>Total:</strong> {listTotal()}

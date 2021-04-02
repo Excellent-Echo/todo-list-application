@@ -9,7 +9,7 @@ function List() {
 
   // fungsi menambahkan list
   const addLists = (list) => {
-    console.log("ini list", list);
+    // console.log("ini list", list);
 
     // handle jika data kosong maka tidak ditampilkan
     if (!list.text || /^\s*$/.test(list.text)) {
@@ -18,18 +18,18 @@ function List() {
 
     // menampung list baru dengan spread operator
     const newList = [list, ...lists];
-    console.log("ini newList", newList);
+    // console.log("ini newList", newList);
 
     // push newList ke state setLists
     setLists(newList);
-    console.log("ini lists", ...lists);
+    // console.log("ini lists", ...lists);
   };
 
   // fungsi untuk menghapus lists id
   const deleteLists = (id) => {
-    console.log("ini id delete", id);
+    // console.log("ini id delete", id);
     const deleteArr = [...lists].filter((list) => list.id !== id);
-    console.log("ini deleteArr", deleteArr);
+    // console.log("ini deleteArr", deleteArr);
 
     // push deleteArr ke state setLists
     setLists(deleteArr);
@@ -37,8 +37,8 @@ function List() {
 
   // fungsi untuk mengupdate lists id
   const updateLists = (listId, newValue) => {
-    console.log("ini id update", listId);
-    console.log("ini newValue update", newValue);
+    // console.log("ini id update", listId);
+    // console.log("ini newValue update", newValue);
 
     // push ke state setlists
     setLists((prev) =>
@@ -58,10 +58,16 @@ function List() {
       }
       return list;
     });
-    console.log("ini updateLists", updateList);
+    console.log("ini updateList", updateList);
 
     // push ke state setLists
     setLists(updateList);
+  };
+
+  // update total
+  const updateTotal = () => {
+    console.log("ini length update", completeLists.length);
+    return completeLists.length;
   };
 
   // total list
@@ -78,6 +84,7 @@ function List() {
         deleteLists={deleteLists}
         updateLists={updateLists}
         listTotal={listTotal}
+        updateTotal={updateTotal}
       />
     </div>
   );

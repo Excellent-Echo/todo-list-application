@@ -28,6 +28,7 @@ function Form(props) {
         {/*  input button update */}
         {props.edit ? (
           <>
+            <label>Ganti List Baru: </label>
             <input
               className="relative py-1 px-2 pr-10 w-full bg-red-700 rounded shadow outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"
               type="text"
@@ -36,11 +37,12 @@ function Form(props) {
               value={input}
               onChange={handleChange}
             />
+            <label>Ganti Kategori Baru: </label>
             <select
-              className="relative py-1 px-2 pr-10 w-full bg-red-700 rounded shadow outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"
+              className="relative py-1 px-2 pr-10 w-full bg-red-700 rounded shadow outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline m-2"
               onChange={(e) => {
                 const seletedCategory = e.target.value;
-                console.log("ini seletedCategory", seletedCategory);
+                // console.log("ini seletedCategory", seletedCategory);
                 setCategory(seletedCategory);
               }}
             >
@@ -63,11 +65,12 @@ function Form(props) {
               value={input}
               onChange={handleChange}
             />
+            <label>Pilih Kategori: </label>
             <select
               className="relative outline-none rounded py-1 px-2 w-full bg-gray-300 shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"
               onChange={(e) => {
                 const seletedCategory = e.target.value;
-                console.log("ini seletedCategory", seletedCategory);
+                // console.log("ini seletedCategory", seletedCategory);
                 setCategory(seletedCategory);
               }}
             >
