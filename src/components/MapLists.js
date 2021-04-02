@@ -44,7 +44,7 @@ function MapList({
   return (
     <div>
       {/* Judul kategori */}
-      <div class="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-4">
         <div className="bg-gray-600 rounded-2xl">
           <p className="text-xl ">Belajar</p>
           <h1 className="italic text-white">Done: 5</h1>
@@ -61,6 +61,15 @@ function MapList({
           <h1 className="italic text-white">Total: 5</h1>
         </div>
       </div>
+      {renObjData === "belajar" ? (
+        <div>Belajar</div>
+      ) : renObjData === "rumah" ? (
+        <div>rRumah</div>
+      ) : renObjData === "kerja" ? (
+        <div>Kerja</div>
+      ) : (
+        <div>Tidak ada</div>
+      )}
 
       {/* tampilkan semua data ke html menggunakan mapping */}
       {lists.map((item, index) => (
