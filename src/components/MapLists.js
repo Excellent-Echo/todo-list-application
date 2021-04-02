@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Form from "./Form";
 
 // css
-import "./Maplist.css";
+import "./MapLists.css";
 
 function MapList({
   lists,
@@ -19,11 +19,11 @@ function MapList({
   });
   console.log("Ini lists di Maplists", lists);
 
-  // get category
-  const renObjData = lists.map(function (data, idx) {
-    return <p key={idx}>{data.kategori}</p>;
-  });
-  console.log("ini renObjData", renObjData);
+  // filter kategori
+  const kategoriBelajar = lists.filter((item) => item.kategori === "belajar");
+  const kategoriRumah = lists.filter((item) => item.kategori === "rumah");
+  const kategoriKerja = lists.filter((item) => item.kategori === "kerja");
+  // console.log("ini data kategori", kategoriBelajar);
 
   // handle submit update
   const submitUpdate = (value) => {
@@ -43,68 +43,157 @@ function MapList({
 
   return (
     <div>
-      {/* Judul kategori */}
       <div className="grid grid-cols-3 gap-4">
-        <div className="bg-gray-600 rounded-2xl">
-          <p className="text-xl ">Belajar</p>
-          <h1 className="italic text-white">Done: 5</h1>
-          <h1 className="italic text-white">Total: 5</h1>
-        </div>
-        <div className="bg-red-600 rounded-2xl">
-          <p className="text-xl ">Rumah</p>
-          <h1 className="italic text-white">Done: 5</h1>
-          <h1 className="italic text-white">Total: 5</h1>
-        </div>
-        <div className="bg-yellow-600 rounded-2xl">
-          <p className="text-xl">Kerja</p>
-          <h1 className="italic text-white">Done: 5</h1>
-          <h1 className="italic text-white">Total: 5</h1>
-        </div>
-      </div>
-      {renObjData === "belajar" ? (
-        <div>Belajar</div>
-      ) : renObjData === "rumah" ? (
-        <div>rRumah</div>
-      ) : renObjData === "kerja" ? (
-        <div>Kerja</div>
-      ) : (
-        <div>Tidak ada</div>
-      )}
-
-      {/* tampilkan semua data ke html menggunakan mapping */}
-      {lists.map((item, index) => (
-        <div key={index}>
+        {/* kategori belajar */}
+        <div>
+          <div className="bg-gray-600 rounded-2xl">
+            <p className="text-xl ">Belajar</p>
+            <h1 className="italic text-white">Done: 5</h1>
+            <h1 className="italic text-white">Total: 5</h1>
+          </div>
           <div>
-            <div className={item.isComplete ? "todo-row complete" : "todo-row"}>
-              <p key={item.id} onClick={() => completeLists(item.id)}>
-                <strong>id:</strong> {item.id}
-              </p>
-              <p>
-                <strong className="from-black">Kategori: </strong>
-                {item.kategori}
-              </p>
-              <h2>{item.text}</h2>
-              <button
-                onClick={() => deleteLists(item.id)}
-                className="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white m-1.5"
-              >
-                Delete
-              </button>
-              <button
-                onClick={() =>
-                  setEdit({
-                    id: item.id,
-                    value: item.text,
-                  })
-                }
-                className="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white"
-              >
-                Update
-              </button>
-            </div>
+            {kategoriBelajar.map((item, index) => (
+              <div key={index}>
+                <div>
+                  <div
+                    className={
+                      item.isComplete
+                        ? "todo-row complete bg-gray-600"
+                        : "todo-row bg-gray-600"
+                    }
+                  >
+                    <p key={item.id} onClick={() => completeLists(item.id)}>
+                      <strong>id:</strong> {item.id}
+                    </p>
+                    <p>
+                      <strong className="from-black">Kategori: </strong>
+                      {item.kategori}
+                    </p>
+                    <h2>{item.text}</h2>
+                    <button
+                      onClick={() => deleteLists(item.id)}
+                      className="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white m-1.5"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      onClick={() =>
+                        setEdit({
+                          id: item.id,
+                          value: item.text,
+                        })
+                      }
+                      className="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white"
+                    >
+                      Update
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
+
+        {/* kategori rumah */}
+        <div>
+          <div className="bg-red-600 rounded-2xl">
+            <p className="text-xl ">Rumah</p>
+            <h1 className="italic text-white">Done: 5</h1>
+            <h1 className="italic text-white">Total: 5</h1>
+          </div>
+          <div>
+            {kategoriRumah.map((item, index) => (
+              <div key={index}>
+                <div>
+                  <div
+                    className={
+                      item.isComplete
+                        ? "todo-row complete bg-red-600"
+                        : "todo-row bg-red-600"
+                    }
+                  >
+                    <p key={item.id} onClick={() => completeLists(item.id)}>
+                      <strong>id:</strong> {item.id}
+                    </p>
+                    <p>
+                      <strong className="from-black">Kategori: </strong>
+                      {item.kategori}
+                    </p>
+                    <h2>{item.text}</h2>
+                    <button
+                      onClick={() => deleteLists(item.id)}
+                      className="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white m-1.5"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      onClick={() =>
+                        setEdit({
+                          id: item.id,
+                          value: item.text,
+                        })
+                      }
+                      className="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white"
+                    >
+                      Update
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* kategori kerja */}
+        <div>
+          <div className="bg-yellow-600 rounded-2xl">
+            <p className="text-xl ">Kerja</p>
+            <h1 className="italic text-white">Done: 5</h1>
+            <h1 className="italic text-white">Total: 5</h1>
+          </div>
+          <div>
+            {kategoriKerja.map((item, index) => (
+              <div key={index}>
+                <div>
+                  <div
+                    className={
+                      item.isComplete
+                        ? "todo-row complete bg-yellow-600 "
+                        : "todo-row bg-yellow-600 "
+                    }
+                  >
+                    <p key={item.id} onClick={() => completeLists(item.id)}>
+                      <strong>id:</strong> {item.id}
+                    </p>
+                    <p>
+                      <strong className="from-black">Kategori: </strong>
+                      {item.kategori}
+                    </p>
+                    <h2>{item.text}</h2>
+                    <button
+                      onClick={() => deleteLists(item.id)}
+                      className="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white m-1.5"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      onClick={() =>
+                        setEdit({
+                          id: item.id,
+                          value: item.text,
+                        })
+                      }
+                      className="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white"
+                    >
+                      Update
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Data hasil */}
       <div className="space-y-4 bg-red-500 mt-14">
