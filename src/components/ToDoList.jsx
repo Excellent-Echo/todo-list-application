@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 
 import logo from '../assets/logo.svg';
+import path from '../assets/Path.svg';
+import xshape from '../assets/xshape.svg';
 import './todolist.css';
 
 import ToDoForm from './ToDoForm';
+import category from './ToDoForm';
 
 const ToDoList = () => {
   const [todos, setTodos] = useState([]);
@@ -33,6 +36,8 @@ const ToDoList = () => {
     return todos.length;
   }
 
+
+
   const Todo = ({ todo, index, doneTodo }) => {
     return (
       <div
@@ -46,15 +51,15 @@ const ToDoList = () => {
             className="done"
             onClick={() => {
               doneTodo(index)
-              const completeTask = doneTask + 1;
-              setDoneTask(completeTask);
+              const newDoneTask = doneTask + 1;
+              setDoneTask(newDoneTask);
               const newActiveTask = activeTask - 1;
               setActiveTask(newActiveTask);
             }
             }
           >
-            v
-            </button>
+            <img src={path} alt="checked" />
+          </button>
 
           {todo.text}
 
@@ -64,13 +69,15 @@ const ToDoList = () => {
               removeTodo(index)
               if (activeTask !== 0) {
                 const newActiveTask = activeTask - 1;
-                setActiveTask(newActiveTask);  
+                setActiveTask(newActiveTask);
               }
             }
             }
           >
-            x
-            </button>
+            <img src={xshape} alt="checked" />
+          </button>
+
+          <span></span>
         </li>
       </div >
     );
@@ -78,51 +85,43 @@ const ToDoList = () => {
 
   return (
     <>
-      <div className="app">
-        <div className="container mt-5">
-          <div className="row">
-            <div className="col-sm">
-              <div id="logo">
-                <img src={logo} className="img-fluid mx-auto d-block" alt="logo" />
-              </div>
+      <div className="container mt-5">
+        <div className="row">
+          <div className="col-sm">
+            <div id="logo">
+              <img src={logo} className="img-fluid mx-auto d-block" alt="logo" />
             </div>
           </div>
         </div>
-        <div className="container mt-5">
-          <div className="row d-flex justify-content-center">
-            <div className="">
-              <div className="input-group mb-3">
-                <ToDoForm addTodo={addTodo} />
-              </div>
+      </div>
+      <div className="container mt-5">
+        <div className="row d-flex justify-content-center">
+          <div className="">
+            <div className="input-group mb-3">
+              <ToDoForm addTodo={addTodo} />
+            </div>
 
-            </div>
           </div>
         </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12 d-flex justify-content-center">
-              <h2>Today<span>you have {totalTask()} task(s)</span></h2>
-            </div>
+      </div>
+      <div className="container">
+        <div className="row d-flex justify-content-center">
+          <div>
+            <ul id="task-list" className="list-group">
+              {todos.map((todo, index) => (
+                <Todo
+                  key={index}
+                  index={index}
+                  todo={todo}
+                  doneTodo={doneTodo}
+                  removeTodo={removeTodo}
+                />
+              ))}
+            </ul>
           </div>
         </div>
-        <div className="container">
-          <div className="row d-flex justify-content-center">
-            <div>
-              <ul id="task-list" className="list-group">
-                {todos.map((todo, index) => (
-                  <Todo
-                    key={index}
-                    index={index}
-                    todo={todo}
-                    doneTodo={doneTodo}
-                    removeTodo={removeTodo}
-                  />
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-        {/* <div className="container mt-5">
+      </div>
+      {/* <div className="container mt-5">
           <div className="row">
             <div className="col-sm-12 d-flex justify-content-center">
               <div id="work" className="category">
@@ -132,18 +131,22 @@ const ToDoList = () => {
             </div>
           </div>
         </div> */}
-        <div className="container mt-5">
-          <div className="row">
-            <div className="col-sm-12 d-flex flex-column align-items-center">
-              <h5>Task Status:</h5>
-              <span> {doneTask} task(s) <strong>Done</strong></span>
-              <span> {activeTask} task(s) <strong>Active</strong></span>
-            </div>
+      <div className="container mt-2 mb-5">
+        <div className="row">
+          <div className="col-sm-12 d-flex flex-column align-items-center">
+            <h2>Today<span>you have {totalTask()} task(s)</span></h2>
+            <span> {doneTask} task(s) <strong>Done</strong></span>
+            <span> {activeTask} task(s) <strong>Active</strong></span>
           </div>
         </div>
       </div>
-
-
+      {/* <div className="container mt-5 footer">
+          <div className="row">
+            <div className="text-center">
+              <h5>Created by marwanjuna</h5>
+            </div>
+          </div>
+        </div> */}
     </>
   );
 }

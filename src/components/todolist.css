@@ -22,6 +22,17 @@ span {
     width: 100%;
 }
 
+.todo li button {
+    width: 20px;
+    border: none;
+    background-color: #57D09C;
+    border-radius: 50%;
+}
+
+.todo li button img {
+    width: 10px;
+}
+
 .todo li .done {
     float: left;
     margin-right: 10px;
@@ -31,3 +42,9 @@ span {
     float: right;
     margin-left: 10px;
 }
+
+.footer {
+    width: 100%;
+    background-color: #57D09C;
+}
+

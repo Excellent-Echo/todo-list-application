@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 
-// import DropdownButton from 'react-bootstrap/DropdownButton';
-// import Dropdown from 'react-bootstrap/Dropdown';
-// import Select from 'react-select';
-
 import addButton from '../assets/add-button.svg';
 import './todoform.css';
 
@@ -51,7 +47,7 @@ const ToDoForm = ({ addTodo }) => {
   }
 
   return (
-    <>
+    <div className="container">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -85,7 +81,7 @@ const ToDoForm = ({ addTodo }) => {
           </button>
         </div>
       </form>
-      <div className="container mt-5">
+      <div className="container mt-3 categories">
         <div className="row">
           <div className="col-sm-12 d-flex justify-content-center">
             <div id="personal" className="category">
@@ -107,8 +103,8 @@ const ToDoForm = ({ addTodo }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
-export default ToDoForm
+export default ToDoForm;
