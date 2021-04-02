@@ -1,9 +1,25 @@
 import React from 'react';
 
-const ToDo = ({toDo,key}) => {
+const ToDo = ({toDo, changeStatus}) => {
+    const style1 = {
+        textDecoration: 'none',
+        color: 'red'
+      };
+    
+      const style2 = {
+        textDecoration: 'line-through',
+      };
+    
+      const getStyle = () => {
+        return toDo.complete ? style2 : style1;
+      };
+
+
     return (
         <>
-            <li>{toDo.todo}</li>
+            <li style={getStyle()} onClick={() => changeStatus(toDo.id)}>
+                {toDo.todo}
+            </li>
         </>
     );
 }
