@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ToDo = ({toDo, changeStatus}) => {
+const ToDo = ({toDo, changeStatus, deleteTask}) => {
     const style1 = {
         textDecoration: 'none',
         color: 'red'
@@ -20,6 +20,7 @@ const ToDo = ({toDo, changeStatus}) => {
             <li style={getStyle()} onClick={() => changeStatus(toDo.id)}>
                 {toDo.todo}
             </li>
+            <span onClick={() => deleteTask(toDo.id)}>x</span>
         </>
     );
 }

@@ -40,15 +40,22 @@ const ToDoList = () => {
           setTodoList(newTodos);
     }
     
+    const deleteTask = (taskId) => {
+        const newTodos = toDoList.filter((item)=>{
+            return item.id !== taskId;
+        });
+
+        setTodoList(newTodos);
+    } 
 
     return (
         <>
             <div className="container">
                 <AddTodo
-                 toDo = {toDo}
-                 setTodo = {setTodo}
-                 categories = {categories}
-                 handleForm = {handleForm}
+                 toDo={toDo}
+                 setTodo={setTodo}
+                 categories={categories}
+                 handleForm={handleForm}
                 />
             </div>
             <div className="container">
@@ -59,6 +66,7 @@ const ToDoList = () => {
                      toDo={tDo}
                      key={idx}
                      changeStatus={changeStatus}
+                     deleteTask={deleteTask}
                      />
                     )
                 })}
