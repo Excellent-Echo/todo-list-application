@@ -7,6 +7,7 @@ import ToDoForm from './ToDoForm';
 
 const ToDoList = () => {
   const [todos, setTodos] = useState([]);
+  const [doneTask, setDoneTask] = useState(0);
 
   const addTodo = text => {
     const newTodos = [...todos, { text }];
@@ -26,7 +27,7 @@ const ToDoList = () => {
   };
 
   const totalTask = () => {
-    console.log(todos.length);
+    return todos.length;
   }
 
   const Todo = ({ todo, index, doneTodo }) => {
@@ -40,9 +41,14 @@ const ToDoList = () => {
           className="list-group-item">
           <button
             className="done"
-            onClick={() => doneTodo(index)}
+            onClick={() => {
+              doneTodo(index)
+              const completeTask = doneTask + 1;
+              setDoneTask(completeTask);
+            }
+          }
           >
-            V
+            v
             </button>
 
           {todo.text}
@@ -83,7 +89,7 @@ const ToDoList = () => {
         <div className="container">
           <div className="row">
             <div className="col-sm-12 d-flex justify-content-center">
-              <h2>Today<span>you have {totalTask()} tasks</span></h2>
+              <h2>Today<span>you have {totalTask()} task(s)</span></h2>
             </div>
           </div>
         </div>
@@ -101,6 +107,15 @@ const ToDoList = () => {
                   />
                 ))}
               </ul>
+            </div>
+          </div>
+        </div>
+        <div className="container mt-5">
+          <div className="row">
+            <div className="col-sm-12 d-flex flex-column align-items-center">
+              <h5>Task Status:</h5>
+              <span> {doneTask} task(s) <strong>Done</strong></span>
+              <span> {totalTask()} task(s) <strong>Active</strong></span>
             </div>
           </div>
         </div>

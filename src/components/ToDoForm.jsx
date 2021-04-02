@@ -41,7 +41,7 @@ const ToDoForm = ({ addTodo }) => {
         id="dropdown"
         onChange={categories}
       >
-        <option value="0">Categories</option>
+        <option value="0">Category</option>
         <option value="Personal">Personal</option>
         <option value="Work">Work</option>
         <option value="Health & Fit">Health & Fit</option>
