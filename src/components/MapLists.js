@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Form from "./Form";
 
 // css
-import "../styles/Maplist.css";
+import "./Maplist.css";
 
 function MapList({
   lists,
@@ -17,8 +17,13 @@ function MapList({
     id: null,
     value: "",
   });
-
   console.log("Ini lists di Maplists", lists);
+
+  // get category
+  const renObjData = lists.map(function (data, idx) {
+    return <p key={idx}>{data.kategori}</p>;
+  });
+  console.log("ini renObjData", renObjData);
 
   // handle submit update
   const submitUpdate = (value) => {
@@ -31,44 +36,78 @@ function MapList({
     });
   };
 
+  // props dari components form.js
   if (edit.id) {
     return <Form edit={edit} onSubmit={submitUpdate} />;
   }
 
   return (
-    // tampilkan semua data ke html menggunakan mapping
     <div>
-      <h1>Belajar</h1>
-      <h1>Rumah</h1>
-      <h1>Kerja</h1>
+      {/* Judul kategori */}
+      <div class="grid grid-cols-3 gap-4">
+        <div className="bg-gray-600 rounded-2xl">
+          <p className="text-xl ">Belajar</p>
+          <h1 className="italic text-white">Done: 5</h1>
+          <h1 className="italic text-white">Total: 5</h1>
+        </div>
+        <div className="bg-red-600 rounded-2xl">
+          <p className="text-xl ">Rumah</p>
+          <h1 className="italic text-white">Done: 5</h1>
+          <h1 className="italic text-white">Total: 5</h1>
+        </div>
+        <div className="bg-yellow-600 rounded-2xl">
+          <p className="text-xl">Kerja</p>
+          <h1 className="italic text-white">Done: 5</h1>
+          <h1 className="italic text-white">Total: 5</h1>
+        </div>
+      </div>
+
+      {/* tampilkan semua data ke html menggunakan mapping */}
       {lists.map((item, index) => (
         <div key={index}>
-          <div key={item.id} onClick={() => completeLists(item.id)}>
-            <div className={item.isComplete ? "todo-row complete" : "todo-row"}>
-              <p>{item.id}</p>
-              <p>{item.kategori}</p>
-              <h2>{item.text}</h2>
-            </div>
-          </div>
           <div>
-            <p onClick={() => deleteLists(item.id)}> X Delete</p>
-            <p
-              onClick={() =>
-                setEdit({
-                  id: item.id,
-                  value: item.text,
-                })
-              }
-            >
-              V Update
-            </p>
+            <div className={item.isComplete ? "todo-row complete" : "todo-row"}>
+              <p key={item.id} onClick={() => completeLists(item.id)}>
+                <strong>id:</strong> {item.id}
+              </p>
+              <p>
+                <strong className="from-black">Kategori: </strong>
+                {item.kategori}
+              </p>
+              <h2>{item.text}</h2>
+              <button
+                onClick={() => deleteLists(item.id)}
+                className="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white m-1.5"
+              >
+                Delete
+              </button>
+              <button
+                onClick={() =>
+                  setEdit({
+                    id: item.id,
+                    value: item.text,
+                  })
+                }
+                className="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white"
+              >
+                Update
+              </button>
+            </div>
           </div>
         </div>
       ))}
-      <div>
-        <h2>progress </h2>
-        <h2>Done</h2>
-        <h2>Total {listTotal()}</h2>
+
+      {/* Data hasil */}
+      <div className="space-y-4 bg-red-500 mt-14">
+        <span className="block text-red-100 text-2xl">
+          <strong>Progress:</strong>
+        </span>
+        <span className="block text-red-100 text-2xl">
+          <strong>Done:</strong>
+        </span>
+        <span className="block text-red-100 text-2xl">
+          <strong>Total:</strong> {listTotal()}
+        </span>
       </div>
     </div>
   );

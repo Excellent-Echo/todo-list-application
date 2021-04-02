@@ -23,10 +23,13 @@ function Form(props) {
 
   return (
     <div>
+      {/* form */}
       <form onSubmit={handleForm}>
+        {/*  input button update */}
         {props.edit ? (
           <>
             <input
+              className="relative py-1 px-2 pr-10 w-full bg-red-700 rounded shadow outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"
               type="text"
               placeholder="Update list"
               name="text"
@@ -34,6 +37,7 @@ function Form(props) {
               onChange={handleChange}
             />
             <select
+              className="relative py-1 px-2 pr-10 w-full bg-red-700 rounded shadow outline-none text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"
               onChange={(e) => {
                 const seletedCategory = e.target.value;
                 console.log("ini seletedCategory", seletedCategory);
@@ -44,18 +48,23 @@ function Form(props) {
               <option value="rumah">Rumah</option>
               <option value="kerja">Kerja</option>
             </select>
-            <button>Update</button>
+            <button className="rounded bg-red-500 hover:bg-blue-700 py-2 px-4 text-white m-6">
+              Update
+            </button>
           </>
         ) : (
           <>
+            {/* input button add */}
             <input
+              className="relative outline-none rounded py-4 px-3 w-full bg-gray-100 shadow text-base text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"
               type="text"
-              placeholder="Input your to do"
+              placeholder="Input Your To Do List!"
               name="text"
               value={input}
               onChange={handleChange}
             />
             <select
+              className="relative outline-none rounded py-1 px-2 w-full bg-gray-300 shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"
               onChange={(e) => {
                 const seletedCategory = e.target.value;
                 console.log("ini seletedCategory", seletedCategory);
@@ -66,7 +75,9 @@ function Form(props) {
               <option value="rumah">Rumah</option>
               <option value="kerja">Kerja</option>
             </select>
-            <button>Add</button>
+            <button className="rounded bg-blue-500 hover:bg-blue-700 py-2 px-4 text-white m-2.5 mb-10">
+              Add List
+            </button>
           </>
         )}
       </form>

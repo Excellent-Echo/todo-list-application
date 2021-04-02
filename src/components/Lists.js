@@ -71,7 +71,6 @@ function List() {
 
   return (
     <div>
-      <h3>Your Lists</h3>
       <Form onSubmit={addLists} />
       <MapLists
         lists={lists}
