@@ -13,6 +13,7 @@ function TodoForm(props) {
 
     const handleChange = (e) =>{
         setInput(e.target.value);
+        console.log("target value", e.target.value)
     }
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -35,9 +36,9 @@ function TodoForm(props) {
               }}
             >
               <option selected>Choose Your Task</option>
-              <option value="belajar">Home</option>
-              <option value="rumah">Job</option>
-              <option value="kerja">College</option>
+              <option value="home">Home</option>
+              <option value="job">Job</option>
+              <option value="college">College</option>
             </select>
 
          <form className="todo-form" onSubmit={handleSubmit}>
