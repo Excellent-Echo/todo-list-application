@@ -8,10 +8,13 @@ import ToDoForm from './ToDoForm';
 const ToDoList = () => {
   const [todos, setTodos] = useState([]);
   const [doneTask, setDoneTask] = useState(0);
+  const [activeTask, setActiveTask] = useState(0);
 
   const addTodo = text => {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
+    const newActiveTask = activeTask + 1;
+    setActiveTask(newActiveTask);
   };
 
   const doneTodo = index => {
@@ -45,8 +48,10 @@ const ToDoList = () => {
               doneTodo(index)
               const completeTask = doneTask + 1;
               setDoneTask(completeTask);
+              const newActiveTask = activeTask - 1;
+              setActiveTask(newActiveTask);
             }
-          }
+            }
           >
             v
             </button>
@@ -55,12 +60,19 @@ const ToDoList = () => {
 
           <button
             className="remove"
-            onClick={() => removeTodo(index)}
+            onClick={() => {
+              removeTodo(index)
+              if (activeTask !== 0) {
+                const newActiveTask = activeTask - 1;
+                setActiveTask(newActiveTask);  
+              }
+            }
+            }
           >
             x
             </button>
         </li>
-      </div>
+      </div >
     );
   };
 
@@ -112,10 +124,20 @@ const ToDoList = () => {
         </div>
         <div className="container mt-5">
           <div className="row">
+            <div className="col-sm-12 d-flex justify-content-center">
+              <div id="work" className="category">
+                <h5>Work</h5>
+                <p>{totalTask()} task(s)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="container mt-5">
+          <div className="row">
             <div className="col-sm-12 d-flex flex-column align-items-center">
               <h5>Task Status:</h5>
               <span> {doneTask} task(s) <strong>Done</strong></span>
-              <span> {totalTask()} task(s) <strong>Active</strong></span>
+              <span> {activeTask} task(s) <strong>Active</strong></span>
             </div>
           </div>
         </div>
