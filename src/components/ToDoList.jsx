@@ -50,15 +50,13 @@ const ToDoList = () => {
         setTodoList(newTodos);
     } 
 
-    // const doneTask = () => {
-    //     const doneList = toDoList.map((items)=>{
-    //         console.log(items.complete)
-    //         if(items.complete === true){
-    //             return {...items}
-    //         }
-    //     })
-    //     return doneList.length
-    // }
+    const doneTask = () => {
+        let counter = 0;
+        const doneList = toDoList.map((items)=>{
+            return items.complete ? counter++ : counter
+        })
+        return counter
+    }
 
     const total = () => {
        return toDoList.length;
@@ -88,7 +86,7 @@ const ToDoList = () => {
                     )
                 })}
                 </ul>
-                {/* <span>Done Task : {doneTask()}</span> */}
+                <span>Done Task : {doneTask()}</span><br/>
                 <span>Total Task : {total()}</span>
             </div>
         </>

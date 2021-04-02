@@ -18,7 +18,7 @@ const ToDo = ({toDo, changeStatus, deleteTask}) => {
     return (
         <>
             <li style={getStyle()} onClick={() => changeStatus(toDo.id)}>
-                {toDo.todo}{toDo.category}
+                {toDo.category}{' : '}{toDo.todo}
             </li>
             <span onClick={() => deleteTask(toDo.id)}>x</span>
         </>
