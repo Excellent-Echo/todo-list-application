@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown';
+// import DropdownButton from 'react-bootstrap/DropdownButton';
+// import Dropdown from 'react-bootstrap/Dropdown';
+// import Select from 'react-select';
+
 import addButton from '../assets/add-button.svg';
 import './todoform.css';
 
@@ -10,10 +12,16 @@ const ToDoForm = ({ addTodo }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (!value) return;
+    if (!value) {
+      return;
+    }
     addTodo(value);
     setValue("");
   };
+
+  const categories = () => {
+    console.log();
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -26,12 +34,13 @@ const ToDoForm = ({ addTodo }) => {
         value={value}
         onChange={e => setValue(e.target.value)}
       />
-      <DropdownButton id="dropdown-basic-button" title="Categories">
-        <Dropdown.Item href="#/action-1">Personal</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Work</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Health & Fit</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Shopping</Dropdown.Item>
-      </DropdownButton>
+      <select id="dropdown">
+        <option value="Categories">Categories</option>
+        <option value="Personal">Personal</option>
+        <option value="Work">Work</option>
+        <option value="Health & Fit">Health & Fit</option>
+        <option value="Shopping">Shopping</option>
+      </select>      
       <div className="input-group-append">
         <button
           onClick={handleSubmit}

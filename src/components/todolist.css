@@ -18,3 +18,16 @@ span {
     font-size: 15px;
 }
 
+.todo li {
+    width: 100%;
+}
+
+.todo li .done {
+    float: left;
+    margin-right: 10px;
+}
+
+.todo li .remove {
+    float: right;
+    margin-left: 10px;
+}

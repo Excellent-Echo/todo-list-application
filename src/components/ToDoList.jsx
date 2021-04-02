@@ -13,7 +13,7 @@ const ToDoList = () => {
     setTodos(newTodos);
   };
 
-  const completeTodo = index => {
+  const doneTodo = index => {
     const newTodos = [...todos];
     newTodos[index].isCompleted = true;
     setTodos(newTodos);
@@ -25,17 +25,31 @@ const ToDoList = () => {
     setTodos(newTodos);
   };
 
-  const Todo = ({ todo, index, completeTodo }) => {
+  const Todo = ({ todo, index, doneTodo }) => {
     return (
       <div
         className="todo"
         style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
       >
-        {todo.text}
-        <div>
-          <button onClick={() => completeTodo(index)}>Complete</button>
-          <button onClick={() => removeTodo(index)}>x</button>
-        </div>
+
+        <li
+          class="list-group-item">
+          <button
+            className="done"
+            onClick={() => doneTodo(index)}
+          >
+            V
+            </button>
+
+          {todo.text}
+
+          <button
+            className="remove"
+            onClick={() => removeTodo(index)}
+          >
+            x
+            </button>
+        </li>
       </div>
     );
   };
@@ -69,15 +83,23 @@ const ToDoList = () => {
             </div>
           </div>
         </div>
-        {todos.map((todo, index) => (
-          <Todo
-            key={index}
-            index={index}
-            todo={todo}
-            completeTodo={completeTodo}
-            removeTodo={removeTodo}
-          />
-        ))}
+        <div className="container">
+          <div className="row d-flex justify-content-center">
+            <div>
+              <ul id="task-list" className="list-group">
+                {todos.map((todo, index) => (
+                  <Todo
+                    key={index}
+                    index={index}
+                    todo={todo}
+                    doneTodo={doneTodo}
+                    removeTodo={removeTodo}
+                  />
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
 
 
