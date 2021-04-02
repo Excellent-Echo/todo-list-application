@@ -122,16 +122,16 @@ const ToDoList = () => {
             </div>
           </div>
         </div>
-        <div className="container mt-5">
+        {/* <div className="container mt-5">
           <div className="row">
             <div className="col-sm-12 d-flex justify-content-center">
               <div id="work" className="category">
                 <h5>Work</h5>
-                <p>{totalTask()} task(s)</p>
+                <p>{categoryCounter()} task(s)</p>
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="container mt-5">
           <div className="row">
             <div className="col-sm-12 d-flex flex-column align-items-center">
