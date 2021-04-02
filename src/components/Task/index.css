@@ -1,0 +1,10 @@
+.task-container {
+  display: absolute;
+  left: -150px;
+  width: 80%;
+}
+
+.btn-task {
+  display: flex;
+  justify-content: flex-start;
+}

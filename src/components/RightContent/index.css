@@ -1,0 +1,6 @@
+.right-header {
+  padding: 50px;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
