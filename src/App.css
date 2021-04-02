@@ -1,19 +1,52 @@
-.app {
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;0,900;1,600&display=swap');
+
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
   background: #209cee;
-  height: 100vh;
   padding: 30px;
 }
+.app {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 100px;
+  align-items: center;
+}
+
+.lg-container {
+  width: 250px;
+  margin: auto;
+}
+
+img {
+  margin-bottom: 30px;
+  fill: white !important;
+  filter: invert(1);
+}
+
 
 .task-list {
   background: #e8e8e8;
   border-radius: 4px;
-  max-width: 400px;
+  width: 450px;
   padding: 5px;
+}
+
+input {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  display: flex;
+  font-size: 15px;
+  padding: 10px 10px;
 }
 
 .task {
   align-items: center;
   background: #fff;
+  height: 50px;
   border-radius: 3px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
   display: flex;
@@ -21,4 +54,50 @@
   justify-content: space-between;
   margin-bottom: 6px;
   padding: 3px 10px;
+}
+
+button {
+  font-weight: bold;
+}
+
+.btn-done {
+  margin-right: 5px;
+  background-color:#44c767;
+	border-radius:5px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	padding: 5px 10px;
+	text-decoration:none;
+}
+
+.btn-done:hover {
+	background-color:#5cbf2a;
+}
+.btn-done:active {
+	position:relative;
+	/* top:1px; */
+}
+
+.btn-del {
+  margin-right: 5px;
+  background-color:#f24437;
+	border-radius:5px;
+	border:1px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:17px;
+	padding: 5px 10px;
+	text-decoration:none;
+}
+
+.btn-del:hover {
+	background-color:#c62d1f;
+}
+.btn-del:active {
+	position:relative;
+	/* top:1px; */
 }

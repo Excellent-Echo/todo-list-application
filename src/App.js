@@ -1,5 +1,9 @@
 import React from 'react';
 import './App.css';
+import logo from './assets/doit-logo.svg';
+
+// import { Container, Row, Col, Form, Card, Alert, Button, Tabl } from 'react-bootstrap';
+// import 'bootstrap/dist/css/boostrap.min.css';
 
 function Task({ task, index, doneTask, removeTask }) {
   return (
@@ -7,13 +11,15 @@ function Task({ task, index, doneTask, removeTask }) {
       className = "task"
       style = {{ textDecoration: task.isDone ? "line-through" : "" }}
     >
-      { task.task }
+        <h2>
+          { task.task }
+        </h2>
 
       <div>
-        <button onClick = {() => doneTask(index)}>
+        <button className="btn-done" onClick = {() => doneTask(index)}>
           Done  
         </button>
-        <button onClick = {() => removeTask(index)}>
+        <button className="btn-del" onClick = {() => removeTask(index)}>
           Delete
         </button>        
       </div>
@@ -38,6 +44,7 @@ function TaskForm({ addTask }) {
         className = "addTask"
         value = { value }
         onChange = { e => setVal(e.target.value) }
+        placeholder = "Enter new task here"
       />
     </form>
   )
@@ -46,7 +53,10 @@ function TaskForm({ addTask }) {
 function App() {
 
   const [tasks, setTasks] = React.useState([
-    
+    {
+      task: "Complete this app",
+      isDone: false
+    },
   ]);
 
   const addTask = task => {
@@ -68,19 +78,24 @@ function App() {
 
   return (
     <div className="app">
-      <div className="task-list">
-        { tasks.map((task, index) => (
-          <Task
-            key = { index }
-            index = { index }
-            task = { task }
-            doneTask = { doneTask }
-            removeTask = { removeTask }
-          />
-        ))}
+      <div>
+        <div className="lg-container">
+          <img src= { logo }/>
+        </div>
+        <div className="task-list">
+          { tasks.map((task, index) => (
+            <Task
+              key = { index }
+              index = { index }
+              task = { task }
+              doneTask = { doneTask }
+              removeTask = { removeTask }
+            />
+          ))}
 
-        <TaskForm addTask = { addTask } />
+          <TaskForm addTask = { addTask } />
 
+        </div>
       </div>
     </div>
   );
