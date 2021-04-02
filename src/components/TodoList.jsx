@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import TodoForm from './TodoForm'
 import Todo from './Todo'
+import'bootstrap/dist/css/bootstrap.min.css';
 
 
 function TodoList() {
@@ -39,10 +40,38 @@ function TodoList() {
         setTodos(updateTodos);
     }
 
+    const style = {
+        width : "25rem",
+    }
+
+    const getStyle = () => {
+        return  style;
+      };
+
     return (
-        <div>
-            <h1>What's is your plan for today?</h1>
+        <>
+        <div className="container">
+            <h1 className="mt-5">What's Your Work today?</h1>
             <TodoForm onSubmit={addTodo}/>
+        <div class="row row-cols-3">
+
+        <div className="container">
+        <div className="card col-sm bg-primary" style={getStyle()}>
+            <div className="card-body">
+                <h5 className="card-title">Work</h5>
+                <Todo 
+                    todos={todos}
+                    completeTodo={completeTodo}
+                    removeTodo={removeTodo}
+                    updateTodo={updateTodo}
+                />
+        </div>
+    </div>
+</div>
+<div className="container">
+    <div className="card col-sm bg-success" style={getStyle()}>
+        <div className="card-body">
+            <h5 className="card-title">Work</h5>
             <Todo 
             todos={todos}
             completeTodo={completeTodo}
@@ -50,6 +79,24 @@ function TodoList() {
             updateTodo={updateTodo}
             />
         </div>
+    </div>
+</div>
+<div className="container">
+    <div className="card col-sm bg-info" style={getStyle()}>
+        <div className="card-body">
+            <h5 className="card-title">Work</h5>
+            <Todo 
+            todos={todos}
+            completeTodo={completeTodo}
+            removeTodo={removeTodo}
+            updateTodo={updateTodo}
+            />
+        </div>
+    </div>
+</div>
+</div>
+</div>
+        </>
     )
 }
 
