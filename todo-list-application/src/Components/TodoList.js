@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Form, Row, Col, Container, Table, Card } from 'react-bootstrap';
 
 function TodoList() {
 
@@ -9,7 +11,8 @@ function TodoList() {
         setInput(e.target.value);
     };
 
-    const addTask = () => {
+    const addTask = (e) => {
+        e.preventDefault();
         if (input !== "") {
             const inputDetails = {
                 id: Math.floor(Math.random() * 1000),
@@ -22,58 +25,81 @@ function TodoList() {
         }
     };
 
-    const deleteInput = (e, id) => {
-        e.preventDefault();
+    const deleteInput = (id) => {
         setTaskInput(taskInput.filter(t => t.id !== id))
     }
 
-    const completeTask = (e, id) => {
-        e.preventDefault();
+    const completeTask = (id) => {
 
-        const element =taskInput.findIndex((elem) => elem.id == id);
+        const element = taskInput.findIndex((elem) => elem.id === id);
 
-        const newInput= [...taskInput];
+        const newInput = [...taskInput];
 
         newInput[element] = {
             ...newInput[element],
-            isCompleted : true,
+            isCompleted: true,
         };
-            setTaskInput(newInput)
+        setTaskInput(newInput)
     };
 
+    console.log(taskInput);
+
     return (
-        <div>
-            <h1>To-Do List</h1>
-            
-            <form>
+        <Container className="justify-content-md-center" responsive="sm">
+            <Card bg='dark'>
 
-                <input
-                    type='text'
-                    id='text'
-                    name='text'
-                    placeholder='Add new Task'
-                    onChange={(e) => handleInput(e)} />
-                <button className='add-btn' onClick={addTask} >Add</button>
-            </form>
+            <div>
+                <h1>To-Do List</h1>
 
+                <Form>
+                    <Form.Group>
+                        <Row >
+                            <Col>
+                                <Form.Control
+                                    type='text'
+                                    id='text'
+                                    name='text'
+                                    placeholder='Add new Task'
+                                    onChange={(e) => handleInput(e)} />
+                            </Col>
+                            <Col>
+                                <Button className='add-btn' onClick={addTask} >Add</Button>
 
-            {taskInput !== [] ? (
-                <ul>
-                    {taskInput.map((t) => (
-                        <li className={t.isCompleted ? 'crosstext' : 'listitem'}>{t.value}
-                        <button className='complete' onClick={(e) => completeTask(t.id)} ></button>
-                        <button className='delete' onClick={(e) => deleteInput(t.id)} ></button>
-                        
-                        </li>
-                    ))}
-                </ul>
+                            </Col>
+                        </Row>
+                    </Form.Group>
 
 
-            ) : null}
+                </Form>
+
+
+                {taskInput !== [] ? (
+                    <Table responsive="sm" >
+
+                        <tbody>
+                            {taskInput.map((t, index) => (
+
+                                <tr key={index}>
+                                    <td>{t.isCompleted ? <s style={{ margin: "0 1em" }}>{t.value}</s> : <span style={{ margin: "0 1em" }}>{t.value}</span>}</td>
+                                    <td><Button className='complete' onClick={(e) => completeTask(t.id)} >Complete</Button></td>
+                                    <td><Button className='delete' onClick={(e) => deleteInput(t.id)} >Delete</Button></td>
+                                </tr>
+                            ))}
+                        </tbody>
+
+
+                    </Table>
+
+
+                ) : null}
 
 
 
-        </div>
+            </div>
+            </Card>
+
+
+        </Container>
     )
 }
 
