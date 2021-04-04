@@ -1,0 +1,7 @@
+.left-container {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  border-right: 1px solid rgb(185, 184, 184);
+  padding-right: 10%;
+}
