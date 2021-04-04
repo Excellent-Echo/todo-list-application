@@ -50,7 +50,9 @@ const ToDoList = () => {
         <div className="row d-flex justify-content-center">
           <div className="">
             <div className="input-group mb-3">
-              <ToDoForm addTask={addTask} />
+              <ToDoForm
+                addTask={addTask} 
+              />
             </div>
 
           </div>

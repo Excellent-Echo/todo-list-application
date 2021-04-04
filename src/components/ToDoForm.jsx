@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import addButton from '../assets/add-button.svg';
 import './todoform.css';
-import Categories from './Categories';
+import DisplayCategories from './DisplayCategories';
 
 const ToDoForm = ({ addTask }) => {
   const [value, setValue] = useState("");
@@ -98,7 +98,7 @@ const ToDoForm = ({ addTask }) => {
           </div>
         </div>
       </div> */}
-      <Categories 
+      <DisplayCategories 
         personalTask={personalTask}
         workTask={workTask}
         healthTask={healthTask}

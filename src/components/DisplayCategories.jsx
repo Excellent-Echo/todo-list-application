@@ -1,8 +1,8 @@
 import React from "react";
 
-import './Categories.css';
+import './DisplayCategories.css';
 
-const Categories = ({ personalTask, workTask, healthTask, shoppingTask }) => {  
+const DisplayCategories = ({ personalTask, workTask, healthTask, shoppingTask }) => {  
 
   return (
     <div className="container mt-3 categories">
@@ -30,4 +30,4 @@ const Categories = ({ personalTask, workTask, healthTask, shoppingTask }) => {
   );
 };
 
-export default Categories;
+export default DisplayCategories;
