@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 import logo from '../assets/logo.svg';
-import path from '../assets/Path.svg';
-import xshape from '../assets/xshape.svg';
 import './todolist.css';
 
 import ToDoForm from './ToDoForm';
+import DisplayToDo from './DisplayToDo';
+import StatusTask from './StatusTask';
 
 const ToDoList = () => {
   const [todos, setTodos] = useState([]);
@@ -13,7 +13,7 @@ const ToDoList = () => {
   const [activeTask, setActiveTask] = useState(0);
 
   const addTask = text => {
-    const newTodos = [...todos, { text }];
+    const newTodos = [...todos, { text, isCompleted: false }];
     setTodos(newTodos);
     const newActiveTask = activeTask + 1;
     setActiveTask(newActiveTask);
@@ -21,7 +21,7 @@ const ToDoList = () => {
 
   const completeTask = index => {
     const newTodos = [...todos];
-    newTodos[index].isCompleted = true;
+    newTodos[index].isCompleted = !newTodos[index].isCompleted;
     setTodos(newTodos);
   };
 
@@ -34,50 +34,6 @@ const ToDoList = () => {
   const totalTask = () => {
     return todos.length;
   }
-
-
-  const Todo = ({ todo, index, completeTask }) => {
-    return (
-      <div
-        className="todo"
-        style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
-      >
-
-        <li
-          className="list-group-item">
-          <button
-            className="done"
-            onClick={() => {
-              completeTask(index)
-              const newDoneTask = doneTask + 1;
-              setDoneTask(newDoneTask);
-              const newActiveTask = activeTask - 1;
-              setActiveTask(newActiveTask);
-            }
-            }
-          >
-            <img src={path} alt="checked" />
-          </button>
-
-          <strong>{todo.text}</strong>
-
-          <button
-            className="remove"
-            onClick={() => {
-              removeTask(index)
-              if (activeTask !== 0) {
-                const newActiveTask = activeTask - 1;
-                setActiveTask(newActiveTask);
-              }
-            }
-            }
-          >
-            <img src={xshape} alt="checked" />
-          </button>
-        </li>
-      </div >
-    );
-  };
 
   return (
     <>
@@ -105,27 +61,27 @@ const ToDoList = () => {
           <div>
             <ul id="task-list" className="list-group">
               {todos.map((todo, index) => (
-                <Todo
+                <DisplayToDo
                   key={index}
                   index={index}
                   todo={todo}
                   completeTask={completeTask}
                   removeTask={removeTask}
+                  doneTask={doneTask}
+                  setDoneTask={setDoneTask}
+                  activeTask={activeTask}
+                  setActiveTask={setActiveTask}
                 />
               ))}
             </ul>
           </div>
         </div>
       </div>
-      <div className="container mt-2 mb-5">
-        <div className="row">
-          <div className="col-sm-12 d-flex flex-column align-items-center">
-            <h2>Today<span>you have {totalTask()} task(s)</span></h2>
-            <span> {doneTask} task(s) <strong>Done</strong></span>
-            <span> {activeTask} task(s) <strong>Active</strong></span>
-          </div>
-        </div>
-      </div>
+      <StatusTask
+        totalTask={totalTask}
+        doneTask={doneTask}
+        activeTask={activeTask}
+      />
     </>
   );
 }

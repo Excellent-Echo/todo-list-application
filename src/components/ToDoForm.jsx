@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import addButton from '../assets/add-button.svg';
 import './todoform.css';
+import Categories from './Categories';
 
 const ToDoForm = ({ addTask }) => {
   const [value, setValue] = useState("");
@@ -10,7 +11,6 @@ const ToDoForm = ({ addTask }) => {
   const [workTask, setWorkTask] = useState(0);
   const [healthTask, setHealthTask] = useState(0);
   const [shoppingTask, setShoppingTask] = useState(0);
-
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -39,15 +39,10 @@ const ToDoForm = ({ addTask }) => {
       setShoppingTask(newShoppingTask);
       return shoppingTask;
     }
-
   };
 
-  const categories = (e) => {
-    setCategory(e.target.value);
-  }
-
   return (
-    <div className="container">
+    <div className="container form-category">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -60,7 +55,7 @@ const ToDoForm = ({ addTask }) => {
         />
         <select
           id="dropdown"
-          onChange={categories}
+          onChange={(e) => setCategory(e.target.value)}
         >
           <option value="0">Category</option>
           <option value="Personal">Personal</option>
@@ -81,7 +76,7 @@ const ToDoForm = ({ addTask }) => {
           </button>
         </div>
       </form>
-      <div className="container mt-3 categories">
+      {/* <div className="container mt-3 categories">
         <div className="row">
           <div className="col-sm-12 d-flex justify-content-center">
             <div id="personal" className="category">
@@ -102,7 +97,13 @@ const ToDoForm = ({ addTask }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      <Categories 
+        personalTask={personalTask}
+        workTask={workTask}
+        healthTask={healthTask}
+        shoppingTask={shoppingTask}
+      />
     </div>
   );
 }
