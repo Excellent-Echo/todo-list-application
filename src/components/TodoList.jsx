@@ -53,12 +53,9 @@ function TodoList() {
         <div className="container">
             <h1 className="mt-5">What's Your Task today?</h1>
             <TodoForm onSubmit={addTodo}/>
-        <div class="row row-cols-3">
-
-        <div className="container">
-        <div className="card col-sm bg-primary" style={getStyle()}>
+        <div class="row">
+        <div className="card col-sm bg-primary m-3" style={getStyle()}>
             <div className="card-body">
-                <h5 className="card-title">Home</h5>
                 <Todo 
                     todos={todos}
                     completeTodo={completeTodo}
@@ -66,34 +63,9 @@ function TodoList() {
                     updateTodo={updateTodo}
                 />
         </div>
-    </div>
 </div>
-<div className="container">
-    <div className="card col-sm bg-success" style={getStyle()}>
-        <div className="card-body">
-            <h5 className="card-title">Job</h5>
-            <Todo 
-            todos={todos}
-            completeTodo={completeTodo}
-            removeTodo={removeTodo}
-            updateTodo={updateTodo}
-            />
-        </div>
-    </div>
-</div>
-<div className="container">
-    <div className="card col-sm bg-info" style={getStyle()}>
-        <div className="card-body">
-            <h5 className="card-title">College</h5>
-            <Todo 
-            todos={todos}
-            completeTodo={completeTodo}
-            removeTodo={removeTodo}
-            updateTodo={updateTodo}
-            />
-        </div>
-    </div>
-</div>
+    
+
 </div>
 </div>
         </>

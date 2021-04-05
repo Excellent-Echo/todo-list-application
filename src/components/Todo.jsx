@@ -10,6 +10,11 @@ const Todo = ({todos, completeTodo, removeTodo, updateTodo}) => {
         value: ''
     });
 
+
+    // const homeCategory = todos.filter((item) => item.category === "home");
+    // const jobCategory = todos.filter((item) => item.category === "job");
+    // const collegeCategory = todos.filter((item) => item.category === "college");
+
     const submitUpadate = value =>{
         updateTodo(edit.id, value)
         setEdit({
@@ -25,7 +30,10 @@ const Todo = ({todos, completeTodo, removeTodo, updateTodo}) => {
         />
     }
 
-    return todos.map((todo, index) =>(
+    return(        
+    <>
+    <div>
+        {todos.map((todo, index) =>(
         <div className={todo.isComplete ? 'todo-row complete' : 'todo-row'} 
             key={index} >
             <div className = "text-dark" key={todo.id} onClick={() => completeTodo(todo.id)}>
@@ -41,9 +49,11 @@ const Todo = ({todos, completeTodo, removeTodo, updateTodo}) => {
                 className = 'edit-icon'
                 />
             </div>
-        
         </div>   
-    ))
+        ))}
+    </div>
+    </>
+    ) 
 }
 
 export default Todo;

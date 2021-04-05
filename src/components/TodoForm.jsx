@@ -3,7 +3,6 @@ import'bootstrap/dist/css/bootstrap.min.css';
 
 function TodoForm(props) {
     const [input, setInput] = useState("");
-    const [category, setCategory] = useState("");
 
     const inputRef = useRef(null);
 
@@ -13,7 +12,6 @@ function TodoForm(props) {
 
     const handleChange = (e) =>{
         setInput(e.target.value);
-        console.log("target value", e.target.value)
     }
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -21,25 +19,11 @@ function TodoForm(props) {
         props.onSubmit({
             id:Math.floor(Math.random() * 1000),
             text:input,
-            category:category 
         });
         setInput("");
     };
     return (
     <>
-            <select
-              className="custom-select custom-select-lg mb-3"
-              onChange={(e) => {
-                const seletedCategory = e.target.value;
-                // console.log("ini seletedCategory", seletedCategory);
-                setCategory(seletedCategory);
-              }}
-            >
-              <option selected>Choose Your Task</option>
-              <option value="home">Home</option>
-              <option value="job">Job</option>
-              <option value="college">College</option>
-            </select>
 
          <form className="todo-form" onSubmit={handleSubmit}>
              {props.edit ? (
