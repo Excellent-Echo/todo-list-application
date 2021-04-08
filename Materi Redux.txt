@@ -1,0 +1,23 @@
+1. Install 2 buah package
+2. install redux
+3. install react redux
+
+proses
+buat folder redux di src 
+buat reducer di folder redux
+didalam reducer buat initialstate 
+const initialstate = {
+	tasklist: [],
+};
+
+const reducer = (state = initialstate, action) => {
+	if (action.type ==="ADD_TODO"){
+	return {
+		...state,
+		tasklist: [...state.tasklist, action.paload.task],
+	};
+}
+	RETURN STATE;
+};
+
+export default reducer;
