@@ -1,0 +1,30 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+body {
+  background: #4ec337; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #1d711d,
+    #c33764
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #92e792,
+    #c33764
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #030303a6;
+  font-family: "Roboto", sans-serif;
+}
+
+input {
+  background: border-box;
+  color: #000000a6;
+  border-top: none;
+  width: 500px;
+  padding: 20px;
+}
+
+
