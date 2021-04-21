@@ -1,0 +1,21 @@
+.form-category {
+    position: relative;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    background-color: #57D09C;
+}
+
+form input {
+    width: 100%;
+}
+
+form div button img {
+    width: 50px;
+}

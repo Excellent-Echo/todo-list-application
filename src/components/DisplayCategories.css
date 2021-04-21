@@ -1,0 +1,31 @@
+.categories {
+  width: 50%;
+  position: absolute;
+  margin-left: -50%;
+}
+
+.categories .row div .category {
+  text-align: center;
+  margin: 0 20px 20px 0;
+  padding: 5px 5px 0 5px;
+  color: white;
+  font-size: 15px;
+}
+
+.categories .row div #personal {
+  background-color: #FFE761;
+  color: black;
+}
+
+.categories .row div #work {
+  background-color: #F45E6D;
+}
+
+.categories .row div #health {
+  background-color: #EBEFF5;
+  color: black;
+}
+
+.categories .row div #shopping {
+  background-color: #B678FF;
+}
