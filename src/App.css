@@ -9,7 +9,7 @@
 }
 
 body {
-  width: 100vw;
+  min-width: 100vw;
   background: linear-gradient(145deg, #f0f0f0, #cacaca);
   display: flex;
   min-height: 100vh;
@@ -30,14 +30,25 @@ body {
 h1 {
   font-weight: bolder;
   margin-bottom: 2rem;
-  color: #000;
-  font-size: 2rem;
+  font-size: 3rem;
+  background: linear-gradient(
+    to right,
+    #ff826e 16.66666666666667%,
+    #fcd770 33.33333333333334%,
+    #b4dd7f 50.00000000000001%,
+    #f0d0b4 66.66666666666668%,
+    #e6e9ed 83.33333333333335%,
+    #838f9b 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
 }
 
 .todo-form {
   display: flex;
   align-items: center;
-  width: 95%;
+  width: 90%;
   border-radius: 0.5rem;
   box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #fff;
   margin-bottom: 1rem;
@@ -54,13 +65,8 @@ h1 {
 }
 
 .todo-input:focus,
-.todo-input:hover,
-.todo-row:hover {
+.todo-input:hover {
   box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
-}
-
-.todo-input::placeholder {
-  color: rgba(0, 0, 0, 0.5);
 }
 
 .todo-button {
@@ -84,10 +90,30 @@ h1 {
   margin: 0.5rem auto;
   color: #000;
   border-radius: 0.5rem;
-  background: #e0e0e0;
+  background: linear-gradient(145deg, #ff8b76, #e67563);
   box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
   padding: 1rem;
-  width: 95%;
+  width: 90%;
+}
+
+.todo-row:nth-child(6n + 1) {
+  background: linear-gradient(145deg, #ffe678, #e3c265);
+}
+
+.todo-row:nth-child(6n + 2) {
+  background: linear-gradient(145deg, #c1ec88, #a2c772);
+}
+
+.todo-row:nth-child(6n + 3) {
+  background: linear-gradient(145deg, #ffdfc1, #d8bba2);
+}
+
+.todo-row:nth-child(6n + 4) {
+  background: linear-gradient(145deg, #f6f9fe, #cfd2d5);
+}
+
+.todo-row:nth-child(6n + 5) {
+  background: linear-gradient(145deg, #8c99a6, #76818c);
 }
 
 .icons {
@@ -111,42 +137,3 @@ h1 {
   text-decoration: line-through;
   opacity: 0.5;
 }
-
-/* ======================================== MEDIA QUERY ======================================== */
-/* ======================================== MEDIA QUERY ======================================== */
-/* -------------------- xx-small -------------------- */
-@media screen and (max-width: 500px) {
-}
-/* -------------------- xx-small -------------------- */
-
-/* -------------------- x-small -------------------- */
-@media screen and (min-width: 501px) and (max-width: 575px) {
-}
-/* -------------------- x-small -------------------- */
-
-/* -------------------- small -------------------- */
-@media screen and (min-width: 576px) and (max-width: 767px) {
-}
-/* -------------------- small -------------------- */
-
-/* -------------------- medium -------------------- */
-@media screen and (min-width: 768px) and (max-width: 991px) {
-}
-/* -------------------- medium -------------------- */
-
-/* -------------------- large -------------------- */
-@media screen and (min-width: 992px) and (max-width: 1199px) {
-}
-/* -------------------- large -------------------- */
-
-/* -------------------- extra large -------------------- */
-@media screen and (min-width: 1200px) and (max-width: 1399px) {
-}
-/* -------------------- x-large -------------------- */
-
-/* -------------------- xx-large -------------------- */
-@media screen and (min-width: 1400px) {
-}
-/* -------------------- xx-large -------------------- */
-
-/* ======================================== MEDIA QUERY ======================================== */
