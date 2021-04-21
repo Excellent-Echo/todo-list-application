@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 
-*{
+body{
+    height: 100%;
     font-family: 'Roboto Condensed', sans-serif;
-    color: white;
+    color: #fff;;
+    background-image: url('assets/bgdark.jpg');
+    background-size: cover;
 }
 
-h1{
+.title{
     font-weight: bold;
+    margin: 1em;
 }
 
 
@@ -14,3 +18,4 @@ span, s{
 
     font-size:25px ;
 }
+

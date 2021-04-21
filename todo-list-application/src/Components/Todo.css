@@ -1,0 +1,23 @@
+.container{
+    margin-top: 2em ;
+    margin-bottom: 2em;
+    height: 90vh;
+    padding: 30px 45px;
+    width: 30%;
+    background-image: linear-gradient(black,#001d3d,#e500a4);
+
+}
+
+
+
+.container h1{
+    text-align: center;
+    color: #fafafa;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.container form input{
+    margin-bottom: 3em;
+}
+

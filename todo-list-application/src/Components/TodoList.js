@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Form, Row, Col, Container, Table, Card } from 'react-bootstrap';
+import { Button, Form} from 'react-bootstrap';
+import "./Todo.css"
 
 function TodoList() {
 
@@ -45,50 +46,42 @@ function TodoList() {
     console.log(taskInput);
 
     return (
-        <Container className="justify-content-md-center" responsive="sm">
-            <Card bg='dark'>
+       
 
-            <div>
-                <h1>To-Do List</h1>
+            <div className="container">
+                <h1 className="title">To-Do List</h1>
 
-                <Form>
-                    <Form.Group>
-                        <Row >
-                            <Col>
-                                <Form.Control
+                <form>
+                <div className="input-group">
+                                <input className="input form-control form-control-lg input-keyword"
                                     type='text'
                                     id='text'
                                     name='text'
                                     placeholder='Add new Task'
                                     onChange={(e) => handleInput(e)} />
-                            </Col>
-                            <Col>
-                                <Button className='add-btn' onClick={addTask} >Add</Button>
+                           
+                                <button className="btn btn-primary btn-lg" onClick={addTask} >Add</button>
+                                </div>
+                </form>
 
-                            </Col>
-                        </Row>
-                    </Form.Group>
-
-
-                </Form>
+                   
 
 
                 {taskInput !== [] ? (
-                    <Table responsive="sm" >
 
                         <tbody>
                             {taskInput.map((t, index) => (
 
                                 <tr key={index}>
                                     <td>{t.isCompleted ? <s style={{ margin: "0 1em" }}>{t.value}</s> : <span style={{ margin: "0 1em" }}>{t.value}</span>}</td>
-                                    <td><Button className='complete' onClick={(e) => completeTask(t.id)} >Complete</Button></td>
-                                    <td><Button className='delete' onClick={(e) => deleteInput(t.id)} >Delete</Button></td>
+                                    <td><button className='complete' onClick={(e) => completeTask(t.id)} >Complete</button></td>
+                                    <td><button className='delete' onClick={(e) => deleteInput(t.id)} >Delete</button></td>
                                 </tr>
                             ))}
                         </tbody>
 
 
-                    </Table>
+                    
 
 
                 ) : null}
@@ -96,10 +89,7 @@ function TodoList() {
 
 
             </div>
-            </Card>
-
-
-        </Container>
+        
     )
 }
 
