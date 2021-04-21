@@ -1,0 +1,40 @@
+.complete {
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+
+.todo-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px auto;
+  color: #fff;
+  background: linear-gradient(
+    90deg,
+    rgb(241, 240, 238) 0%,
+    rgb(197, 194, 193) 100%
+  );
+
+  padding: 16px;
+  border-radius: 5px;
+  width: 90%;
+  cursor: pointer;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.delete-icon {
+  margin-right: 5px;
+  color: rgb(71, 66, 66);
+}
+
+.edit-icon {
+  color: rgb(71, 66, 66);
+}
+
+
