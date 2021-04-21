@@ -3,17 +3,18 @@ import TodoForm from "./TodoForm";
 import Todo from "./Todo";
 
 function TodoList() {
-  const [todos, setTodos] = useState([]),
-    addTodo = (todo) => {
-      if (!todo.text || /^\s*$/.test(todo.text)) {
-        return;
-      }
+  const [todos, setTodos] = useState([]);
 
-      const newTodos = [todo, ...todos];
+  const addTodo = (todo) => {
+    if (!todo.text || /^\s*$/.test(todo.text)) {
+      return;
+    }
 
-      setTodos(newTodos);
-      console.log(...todos);
-    };
+    const newTodos = [todo, ...todos];
+
+    setTodos(newTodos);
+    console.log(...todos);
+  };
 
   const updateTodo = (todoId, newValue) => {
     if (!newValue.text || /^\s*$/.test(newValue.text)) {
