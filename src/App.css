@@ -1,0 +1,37 @@
+body{
+  background : rgb(102, 30, 30);
+  
+}
+.todo-form {
+  margin: auto;
+  padding: 10px;
+  align-items: center;
+}
+.todo {
+  align-content: center;
+  background-color: blue;
+  flex-direction: column;
+}
+.todo-botton {
+  background-color: blue;
+  align-content: center;
+  flex: content;
+  padding-top: 0%;
+}
+icons {
+  border: black; size: 10px;
+  align-content: center;
+  padding-top: 10px;
+}
+
+button {
+  background-color: white;
+  align-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-sizing: 10px;
+}
+::placeholder{
+  box-sizing: border-box; size: 25px;
+
+}
