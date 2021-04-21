@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bolder;
+}
+
+body {
+  min-width: 100vw;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-app {
+  width: 100vw;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 1rem;
+  padding: 2rem 0;
+}
+
+img {
+  margin-right: 1rem;
+}
+
+h1 {
+  font-weight: bolder;
+  margin-bottom: 2rem;
+  font-size: 2.3rem;
+  color: #000;
+  text-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+}
+
+.todo-form {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #fff;
+  margin-bottom: 1rem;
+}
+
+.todo-input {
+  padding: 1rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+  border: none;
+  outline: none;
+  width: 75%;
+  color: #000;
+  background: #e0e0e0;
+}
+
+.todo-input:focus,
+.todo-input:hover {
+  box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+}
+
+.todo-button {
+  width: 25%;
+  padding: 1rem;
+  border: none;
+  border-radius: 0 0.5rem 0.5rem 0;
+  cursor: pointer;
+  outline: none;
+  color: #000;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+}
+
+.todo-button:hover {
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+}
+
+.todo-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem auto;
+  color: #000;
+  border-radius: 0.5rem;
+  background: linear-gradient(145deg, #ff8b76, #e67563);
+  box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+  padding: 1rem;
+  width: 90%;
+}
+
+.todo-row:nth-child(6n + 1) {
+  background: linear-gradient(145deg, #ffe678, #e3c265);
+}
+
+.todo-row:nth-child(6n + 2) {
+  background: linear-gradient(145deg, #c1ec88, #a2c772);
+}
+
+.todo-row:nth-child(6n + 3) {
+  background: linear-gradient(145deg, #ffdfc1, #d8bba2);
+}
+
+.todo-row:nth-child(6n + 4) {
+  background: linear-gradient(145deg, #f6f9fe, #cfd2d5);
+}
+
+.todo-row:nth-child(6n + 5) {
+  background: linear-gradient(145deg, #8c99a6, #76818c);
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.delete-icon {
+  margin-right: 0.5rem;
+  color: #ff826e;
+}
+
+.edit-icon {
+  margin-left: 0.5rem;
+  color: #fcd770;
+}
+
+.complete {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
