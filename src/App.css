@@ -9,6 +9,7 @@
 }
 
 body {
+  width: 100vw;
   background: linear-gradient(145deg, #f0f0f0, #cacaca);
   display: flex;
   min-height: 100vh;
@@ -21,7 +22,6 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 75vw;
   border-radius: 1rem;
   background: linear-gradient(145deg, #f0f0f0, #cacaca);
   box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
@@ -37,7 +37,7 @@ h1 {
 }
 
 .todo-form {
-  width: 90%;
+  width: 95%;
   border-radius: 0.5rem;
   box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
   margin-bottom: 1rem;
@@ -99,7 +99,7 @@ h1 {
   background: #e0e0e0;
   box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
   padding: 16px;
-  width: 90%;
+  width: 95%;
 }
 
 .icons {
