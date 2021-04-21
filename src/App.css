@@ -27,21 +27,14 @@ body {
   padding: 2rem 0;
 }
 
+img {
+  margin-right: 2rem;
+}
 h1 {
   font-weight: bolder;
   margin-bottom: 2rem;
   font-size: 3rem;
-  background: linear-gradient(
-    to right,
-    #ff826e 16.66666666666667%,
-    #fcd770 33.33333333333334%,
-    #b4dd7f 50.00000000000001%,
-    #f0d0b4 66.66666666666668%,
-    #e6e9ed 83.33333333333335%,
-    #838f9b 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #000;
   text-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
 }
 
