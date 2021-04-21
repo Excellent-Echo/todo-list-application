@@ -31,10 +31,6 @@ const ToDoList = () => {
     setTodos(newTodos);
   };
 
-  const totalTask = () => {
-    return todos.length;
-  }
-
   return (
     <>
       <div className="container mt-5">
@@ -80,7 +76,7 @@ const ToDoList = () => {
         </div>
       </div>
       <StatusTask
-        totalTask={totalTask}
+        totalTask={todos.length}
         doneTask={doneTask}
         activeTask={activeTask}
       />

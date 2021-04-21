@@ -4,6 +4,28 @@ import path from '../assets/Path.svg';
 import xshape from '../assets/xshape.svg';
 
 const DisplayToDo = ({ todo, index, doneTask, setDoneTask, activeTask, setActiveTask, completeTask, removeTask }) => {
+  const doneToDo = () => {
+    completeTask(index)
+    if (todo.isCompleted) {
+      const newDoneTask = doneTask + 1;
+      setDoneTask(newDoneTask);
+      const newActiveTask = activeTask - 1;
+      setActiveTask(newActiveTask);
+    } else {
+      const newDoneTask = doneTask - 1;
+      setDoneTask(newDoneTask);
+      const newActiveTask = activeTask + 1;
+      setActiveTask(newActiveTask);
+    }
+  }
+
+  const removeToDo = () => {
+    removeTask(index)
+    if (activeTask !== 0) {
+      const newActiveTask = activeTask - 1;
+      setActiveTask(newActiveTask);
+    }
+  }
 
   return (
     <div
@@ -15,21 +37,7 @@ const DisplayToDo = ({ todo, index, doneTask, setDoneTask, activeTask, setActive
         className="list-group-item">
         <button
           className="done"
-          onClick={() => {
-            completeTask(index)
-            if (todo.isCompleted) {
-              const newDoneTask = doneTask + 1;
-              setDoneTask(newDoneTask);
-              const newActiveTask = activeTask - 1;
-              setActiveTask(newActiveTask);
-            } else {
-              const newDoneTask = doneTask - 1;
-              setDoneTask(newDoneTask);
-              const newActiveTask = activeTask + 1;
-              setActiveTask(newActiveTask);
-            }
-          }
-          }
+          onClick={doneToDo}
         >
           <img src={path} alt="checked" />
         </button>
@@ -38,14 +46,7 @@ const DisplayToDo = ({ todo, index, doneTask, setDoneTask, activeTask, setActive
 
         <button
           className="remove"
-          onClick={() => {
-            removeTask(index)
-            if (activeTask !== 0) {
-              const newActiveTask = activeTask - 1;
-              setActiveTask(newActiveTask);
-            }
-          }
-          }
+          onClick={removeToDo}
         >
           <img src={xshape} alt="checked" />
         </button>
