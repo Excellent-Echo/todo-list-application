@@ -80,7 +80,7 @@ function App() {
     <div className="app">
       <div>
         <div className="lg-container">
-          <img src= { logo }/>
+          <img src= { logo } alt="logo"/>
         </div>
         <div className="task-list">
           { tasks.map((task, index) => (
