@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 
 const TodoList = () => {
   return (
-    <div>
+    <div className="my-4">
       <TodoItem />
       <TodoItem />
       <TodoItem />
