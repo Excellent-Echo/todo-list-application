@@ -1,6 +1,6 @@
 export const ADD_TODO = "ADD_TODO";
-export const UPDATE_TODO = "ADD_TODO";
-export const DELETE_TODO = "ADD_TODO";
+export const UPDATE_TODO = "UPDATE_TODO";
+export const DELETE_TODO = "DELETE_TODO";
 
 export const addTodo = (todo) => {
   return {
@@ -9,10 +9,10 @@ export const addTodo = (todo) => {
   };
 };
 
-export const updateTodo = (todoId) => {
+export const updateTodo = (todo) => {
   return {
     type: UPDATE_TODO,
-    payload: todoId,
+    payload: todo,
   };
 };
 

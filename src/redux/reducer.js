@@ -1,6 +1,7 @@
-import { ADD_TODO, UPDATE_TODO, DELETE_TODO } from "./actions.js";
+import { ADD_TODO, UPDATE_TODO, DELETE_TODO } from "./actions";
+import { todos } from "./states";
 
-export let reducer = (state, action) => {
+export let reducer = (state = todos, action) => {
   switch (action.type) {
     case ADD_TODO:
       break;
@@ -9,9 +10,12 @@ export let reducer = (state, action) => {
       break;
 
     case DELETE_TODO:
-      break;
+      let newTodos = [...state];
+      newTodos = newTodos.filter((todo) => todo.id !== action.payload);
+      return newTodos;
 
     default:
-      return state;
+      break;
   }
+  return state;
 };
