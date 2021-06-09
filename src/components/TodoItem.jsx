@@ -7,7 +7,7 @@ const TodoItem = ({ todo }) => {
   return (
     <div>
       <div className="row mx-2 align-items-center">
-        <div>{todo.id}</div>
+        <div>{todo.id.length > 1 ? todo.id[4] : todo.id}</div>
         <div className="col">
           <h4>{todo.name}</h4>
         </div>
