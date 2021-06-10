@@ -19,6 +19,7 @@ const TodoInput = () => {
 
       <div className="col-md-3">
         <button
+          disabled={!name}
           onClick={() => {
             dispatch(
               addTodo({
