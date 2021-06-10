@@ -1,14 +1,14 @@
 export let todos = [
   {
     id: 1,
-    name: "one",
+    name: "Membaca Buku karangan Dan Brown",
   },
   {
     id: 2,
-    name: "two",
+    name: "Memahami React Js",
   },
   {
     id: 3,
-    name: "three",
+    name: "Memahami Golang",
   },
 ];

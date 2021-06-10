@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const TodoList = () => {
   let todos = useSelector((state) => state);
   return (
-    <div className="my-4">
+    <div className="mt-2">
       {todos.map((todo) => {
         return <TodoItem key={todo.id} todo={todo} />;
       })}
