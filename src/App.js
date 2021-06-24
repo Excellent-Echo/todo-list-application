@@ -6,13 +6,15 @@ import "bootstrap/dist/css/bootstrap.css";
 
 function App() {
   return (
-    <div className="App p-2 bg-light">
-      <div className="row">
-        <div className="col-md-7">
-          <TodoList />
-        </div>
-        <div className="col-md-5">
-          <TodoInput />
+    <div className="App">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-7  bg-light">
+            <TodoList />
+          </div>
+          <div className="col-md-5">
+            <TodoInput />
+          </div>
         </div>
       </div>
     </div>

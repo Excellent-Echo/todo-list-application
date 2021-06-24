@@ -7,7 +7,7 @@ const TodoInput = () => {
   let [name, setName] = useState();
   let dispatch = useDispatch();
   return (
-    <div className="row mt-2 bg-warning">
+    <div className="row mt-2 bg-white">
       <div className="col-md-9">
         <input
           onChange={(e) => setName(e.target.value)}
@@ -29,7 +29,7 @@ const TodoInput = () => {
             );
             setName("");
           }}
-          className="btn btn-primary mx-2"
+          className="btn btn-primary"
         >
           Add
         </button>
