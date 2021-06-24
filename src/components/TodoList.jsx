@@ -6,7 +6,7 @@ const TodoList = () => {
   let todos = useSelector((state) => state);
   return (
     <>
-      <h3 className="mt-2">My Todo List</h3>
+      <h3 className="mt-5 text-warning">My Todo List</h3>
       {todos.map((todo) => {
         return <TodoItem key={todo.id} todo={todo} />;
       })}

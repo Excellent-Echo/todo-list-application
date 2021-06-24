@@ -7,9 +7,9 @@ const TodoItem = ({ todo }) => {
   const [editName, setEditName] = useState(todo.name);
   let dispatch = useDispatch();
   return (
-    <div className="row border bg-info">
+    <div className="row border-bottom pb-3">
       {/*index = <div>#{todo.id.length > 1 ? todo.id[2] : todo.id}</div>*/}
-      <div className="col-md-7 bg-warning">
+      <div className="col-md-7">
         {editable ? (
           <input
             type="text"
@@ -22,11 +22,11 @@ const TodoItem = ({ todo }) => {
         )}
       </div>
 
-      <div clasName="col-md-5 bg-danger">
+      <div clasName="col-md-5">
         <div className="row">
           <div className="col-md-6">
             <button
-              className="btn btn-primary"
+              className="btn btn-outline-primary"
               onClick={() => {
                 dispatch(
                   updateTodo({

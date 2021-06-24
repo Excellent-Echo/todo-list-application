@@ -7,12 +7,13 @@ const TodoInput = () => {
   let [name, setName] = useState();
   let dispatch = useDispatch();
   return (
-    <div className="row mt-2 bg-white">
+    <div className="row mt-5 bg-white">
       <div className="col-md-9">
         <input
           onChange={(e) => setName(e.target.value)}
           value={name}
           type="text"
+          placeholder="Input Todo"
           className="col form-control"
         />
       </div>
