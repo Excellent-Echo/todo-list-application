@@ -3,11 +3,14 @@ import React, { useState } from "react";
 function Form(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
   const [category, setCategory] = useState("");
+  console.log("input", input)
+  console.log("category", category)
+
 
   // handle change value
   const handleChange = (e) => {
     setInput(e.target.value);
-    // console.log("target value", e.target.value);
+    console.log("target value handle change", e.target.value);
   };
 
   // handle form
@@ -70,7 +73,7 @@ function Form(props) {
               className="relative outline-none rounded py-1 px-2 w-full bg-gray-300 shadow text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"
               onChange={(e) => {
                 const seletedCategory = e.target.value;
-                // console.log("ini seletedCategory", seletedCategory);
+                console.log("ini seletedCategory", seletedCategory);
                 setCategory(seletedCategory);
               }}
             >
